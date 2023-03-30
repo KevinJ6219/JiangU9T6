@@ -30,10 +30,16 @@ public class ShippingTest {
     // if the item is an InsuredShippingItem, add an additional 30
     // dollars of insurance BEFORE adding its costs to the total.
     // (there is a addMoreInsurance method for this purpose)
-    double totalCost = 0;
 
 
     // add your code here
+    double totalCost = 0;
+    for (int i = 0; i < itemList.size(); i++) {
+      if (itemList.get(i) instanceof InsuredShippingItem) {
+        ( (InsuredShippingItem) itemList.get(i)).addMoreInsurance(30);
+      }
+      totalCost+=itemList.get(i).getCost();
+    }
 
 
 
